@@ -70,24 +70,6 @@ namespace Whip.App.Resources {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Hinzufügen ähnelt.
-        /// </summary>
-        public static string AppBarButtonText {
-            get {
-                return ResourceManager.GetString("AppBarButtonText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Menübefehl ähnelt.
-        /// </summary>
-        public static string AppBarMenuItemText {
-            get {
-                return ResourceManager.GetString("AppBarMenuItemText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die by Benjamin Sautermeister ähnelt.
         /// </summary>
         public static string ApplicationAuthor {
@@ -106,7 +88,7 @@ namespace Whip.App.Resources {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die MEINE ANWENDUNG ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Whip ähnelt.
         /// </summary>
         public static string ApplicationTitle {
             get {
@@ -129,6 +111,24 @@ namespace Whip.App.Resources {
         public static string Contributors {
             get {
                 return ResourceManager.GetString("Contributors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Simply rate our app. All adverts will disappear forever! ähnelt.
+        /// </summary>
+        public static string MessageBoxRemoveAdContent {
+            get {
+                return ResourceManager.GetString("MessageBoxRemoveAdContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Annoyed by adverts? ähnelt.
+        /// </summary>
+        public static string MessageBoxRemoveAdTitle {
+            get {
+                return ResourceManager.GetString("MessageBoxRemoveAdTitle", resourceCulture);
             }
         }
         

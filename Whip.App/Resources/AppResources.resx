@@ -126,13 +126,7 @@
     <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
   </data>
   <data name="ApplicationTitle" xml:space="preserve">
-    <value>MEINE ANWENDUNG</value>
-  </data>
-  <data name="AppBarButtonText" xml:space="preserve">
-    <value>Hinzufügen</value>
-  </data>
-  <data name="AppBarMenuItemText" xml:space="preserve">
-    <value>Menübefehl</value>
+    <value>Whip</value>
   </data>
   <data name="AboutTitle" xml:space="preserve">
     <value>about</value>
@@ -169,5 +163,11 @@
   <data name="ApplicationVersion" xml:space="preserve">
     <value>1.0</value>
     <comment>General</comment>
+  </data>
+  <data name="MessageBoxRemoveAdContent" xml:space="preserve">
+    <value>Simply rate our app. All adverts will disappear forever!</value>
+  </data>
+  <data name="MessageBoxRemoveAdTitle" xml:space="preserve">
+    <value>Annoyed by adverts?</value>
   </data>
 </root>

@@ -14,6 +14,9 @@ using PhoneKit.Framework.Audio;
 using PhoneKit.Framework.OS.ShakeGestures;
 using PhoneKit.Framework.OS;
 using System.Threading;
+using PhoneKit.Framework.Advertising;
+using PhoneKit.Framework.Core.Net;
+using Microsoft.Phone.Tasks;
 
 namespace Whip.App
 {
@@ -28,16 +31,33 @@ namespace Whip.App
         private DateTime _lastShakeEventTime = DateTime.MinValue;
 
         /// <summary>
+        /// The advertisment control.
+        /// </summary>
+        private MsDuplexAdControl adControl;
+
+        /// <summary>
         /// Creates a MainPage instance.
         /// </summary>
         public MainPage()
         {
             InitializeComponent();
 
+            RemoveAdButton.Tap += (s, e) =>
+                {
+                    if (MessageBox.Show(AppResources.MessageBoxRemoveAdContent, AppResources.MessageBoxRemoveAdTitle, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                    {
+                        Settings.HasReviewed.Value = true;
+
+                        var reviewTask = new MarketplaceReviewTask();
+                        reviewTask.Show();
+                    }
+                };
+
             BuildLocalizedApplicationBar();
 
             InitializeSoundEffect();
             InitializeShakeGesture();
+
         }
 
         /// <summary>
@@ -53,6 +73,16 @@ namespace Whip.App
 
             // activate shake listener
             ShakeGesturesHelper.Instance.Active = true;
+
+            if (!Settings.HasReviewed.Value)
+                LoadAdControl();
+            else
+            {
+                // remove add control and button
+                RemoveAdButton.Visibility = System.Windows.Visibility.Collapsed;
+                if (adControl != null)
+                    adControl.Visibility = System.Windows.Visibility.Collapsed;
+            }
         }
 
         /// <summary>
@@ -130,6 +160,28 @@ namespace Whip.App
             ShakeGesturesHelper.Instance.MinimumRequiredMovesForShake = 2;
             ShakeGesturesHelper.Instance.WeakMagnitudeWithoutGravitationThreshold = 2.5f;
             ShakeGesturesHelper.Instance.MinimumShakeVectorsNeededForShake = 4;
+        }
+
+        /// <summary>
+        /// Loads the adverts control.
+        /// </summary>
+        private void LoadAdControl()
+        {
+            if (!ConnectivityHelper.HasNetwork)
+                return;
+
+            adControl = new MsDuplexAdControl();
+            adControl.AdReceived += (s, e) =>
+                {
+                    ShowRemoveAdButtonInstant.Begin();
+                };
+            adControl.VerticalAlignment = System.Windows.VerticalAlignment.Top;
+            adControl.MsApplicationId = "da6d9cd6-5ae8-41bd-bb99-f693afa63372";
+            adControl.MsAdUnitId = "166592";
+            adControl.AdDuplexAppId = "62359";
+
+            LayoutRoot.Children.Insert(0, adControl);
+            ShowRemoveAdButton.Begin();
         }
     }
 }

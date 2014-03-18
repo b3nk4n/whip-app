@@ -6,14 +6,32 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:adverts="clr-namespace:PhoneKit.Framework.Advertising;assembly=PhoneKit.Framework"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait">
+	<phone:PhoneApplicationPage.Resources>
+		<Storyboard x:Name="ShowRemoveAdButton">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RemoveAdButton" BeginTime="0:0:12.5">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.66"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+
+        <Storyboard x:Name="ShowRemoveAdButtonInstant">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RemoveAdButton" BeginTime="0:0:0.5">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.66"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </phone:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot ist das Stammraster, in dem alle anderen Seiteninhalte platziert werden-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Border x:Name="RemoveAdButton" Background="{StaticResource PhoneAccentBrush}" Width="32" Height="32" Opacity="0"
+                VerticalAlignment="Top" HorizontalAlignment="Right">
+            <Image Source="Assets/Images/close.png" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        </Border>
         <Image Source="Assets/Images/whip.png" />
     </Grid>
 
