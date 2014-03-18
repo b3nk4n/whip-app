@@ -15,8 +15,7 @@
     <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
     <SilverlightApplication>true</SilverlightApplication>
-    <SupportedCultures>
-    </SupportedCultures>
+    <SupportedCultures>de-DE</SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
     <XapFilename>Whip.App_$(Configuration)_$(Platform).xap</XapFilename>
@@ -115,12 +114,63 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AppResLib.dll.0401.mui" />
+    <Content Include="AppResLib.dll.0402.mui" />
+    <Content Include="AppResLib.dll.0403.mui" />
+    <Content Include="AppResLib.dll.0404.mui" />
+    <Content Include="AppResLib.dll.0405.mui" />
+    <Content Include="AppResLib.dll.0406.mui" />
+    <Content Include="AppResLib.dll.0407.mui" />
+    <Content Include="AppResLib.dll.0408.mui" />
+    <Content Include="AppResLib.dll.0409.mui" />
+    <Content Include="AppResLib.dll.040B.mui" />
+    <Content Include="AppResLib.dll.040c.mui" />
+    <Content Include="AppResLib.dll.040D.mui" />
+    <Content Include="AppResLib.dll.040E.mui" />
+    <Content Include="AppResLib.dll.0410.mui" />
+    <Content Include="AppResLib.dll.0411.mui" />
+    <Content Include="AppResLib.dll.0412.mui" />
+    <Content Include="AppResLib.dll.0413.mui" />
+    <Content Include="AppResLib.dll.0414.mui" />
+    <Content Include="AppResLib.dll.0415.mui" />
+    <Content Include="AppResLib.dll.0416.mui" />
+    <Content Include="AppResLib.dll.0418.mui" />
+    <Content Include="AppResLib.dll.0419.mui" />
+    <Content Include="AppResLib.dll.041A.mui" />
+    <Content Include="AppResLib.dll.041B.mui" />
+    <Content Include="AppResLib.dll.041C.mui" />
+    <Content Include="AppResLib.dll.041D.mui" />
+    <Content Include="AppResLib.dll.041E.mui" />
+    <Content Include="AppResLib.dll.041F.mui" />
+    <Content Include="AppResLib.dll.0421.mui" />
+    <Content Include="AppResLib.dll.0422.mui" />
+    <Content Include="AppResLib.dll.0423.mui" />
+    <Content Include="AppResLib.dll.0424.mui" />
+    <Content Include="AppResLib.dll.0425.mui" />
+    <Content Include="AppResLib.dll.0426.mui" />
+    <Content Include="AppResLib.dll.0427.mui" />
+    <Content Include="AppResLib.dll.0429.mui" />
+    <Content Include="AppResLib.dll.042A.mui" />
+    <Content Include="AppResLib.dll.042C.mui" />
+    <Content Include="AppResLib.dll.042F.mui" />
+    <Content Include="AppResLib.dll.0439.mui" />
+    <Content Include="AppResLib.dll.043e.mui" />
+    <Content Include="AppResLib.dll.043F.mui" />
+    <Content Include="AppResLib.dll.0443.mui" />
+    <Content Include="AppResLib.dll.0464.mui" />
+    <Content Include="AppResLib.dll.0804.mui" />
+    <Content Include="AppResLib.dll.0809.mui" />
+    <Content Include="AppResLib.dll.080A.mui" />
+    <Content Include="AppResLib.dll.0816.mui" />
+    <Content Include="AppResLib.dll.081A.mui" />
+    <Content Include="AppResLib.dll.0c0a.mui" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AppResLib.dll" />
     <Content Include="Assets\AlignmentGrid.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -142,6 +192,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AppResources.de-DE.resx" />
     <EmbeddedResource Include="Resources\AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
