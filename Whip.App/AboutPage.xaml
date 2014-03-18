@@ -1,20 +1,31 @@
 ﻿<phone:PhoneApplicationPage
-    x:Class="Whip.App.MainPage"
+    x:Class="Whip.App.AboutPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
+    xmlns:controls="clr-namespace:Whip.App.Controls"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait">
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot ist das Stammraster, in dem alle anderen Seiteninhalte platziert werden-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
-        <Image Source="Assets/Images/whip.png" />
+        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+            <!--TitlePanel enthält den Namen der Anwendung und den Seitentitel-->
+            <StackPanel>
+                <TextBlock Text="{Binding Path=LocalizedResources.AboutTitle, Source={StaticResource LocalizedStrings}}" Margin="24,10,0,32" Style="{StaticResource PhoneTextTitle1Style}"/>
+                <!--ContentPanel - zusätzliche Inhalte hier platzieren-->
+                <Grid x:Name="ContentPanel">
+                    <controls:LocalizedAboutControl />
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 
 </phone:PhoneApplicationPage>

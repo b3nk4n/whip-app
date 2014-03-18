@@ -82,7 +82,7 @@ namespace Whip.App
             ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AboutTitle.ToLower());
             appBarMenuItem.Click += (s, e) =>
                 {
-                    //NavigationService.Navigate(new Uri("/AboutPage.xaml", UriKind.Relative));
+                    NavigationService.Navigate(new Uri("/AboutPage.xaml", UriKind.Relative));
                 };
             ApplicationBar.MenuItems.Add(appBarMenuItem);
         }
@@ -128,7 +128,7 @@ namespace Whip.App
 
             };
             ShakeGesturesHelper.Instance.MinimumRequiredMovesForShake = 2;
-            ShakeGesturesHelper.Instance.WeakMagnitudeWithoutGravitationThreshold = 3.0f;
+            ShakeGesturesHelper.Instance.WeakMagnitudeWithoutGravitationThreshold = 2.5f;
             ShakeGesturesHelper.Instance.MinimumShakeVectorsNeededForShake = 4;
         }
     }
