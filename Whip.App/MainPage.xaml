@@ -33,17 +33,8 @@
             Attribute aus der RESX-Datei entnommen wird, die
             CurrentUICulture der App zur Laufzeit entspricht.
          -->
+        <Image Source="Assets/Images/whip.png" />
 
-        
-        
-
-        <!--Auskommentieren, um ein Ausrichtungsraster anzuzeigen und sicherzustellen, dass Ihre Steuerelemente
-            an den allgemeinen Grenzen ausgerichtet sind.  Das Bild hat oben einen Rand von -32 px wegen
-            der Taskleiste. Legen Sie dies auf 0 fest (oder entfernen Sie den Rand komplett),
-            wenn die Taskleiste ausgeblendet wird.
-
-            Entfernen Sie vor dem Versand dieses XAML und das Bild selbst.-->
-        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
     </Grid>
 
 </phone:PhoneApplicationPage>
