@@ -134,4 +134,40 @@
   <data name="AppBarMenuItemText" xml:space="preserve">
     <value>Menübefehl</value>
   </data>
+  <data name="AboutTitle" xml:space="preserve">
+    <value>hilfe</value>
+    <comment>AboutPage</comment>
+  </data>
+  <data name="ApplicationAuthor" xml:space="preserve">
+    <value>von Benjamin Sautermeister</value>
+    <comment>AboutPage</comment>
+  </data>
+  <data name="ApplicationDescription" xml:space="preserve">
+    <value>Habe das lustige Peitschen-Erlebnis auf deinem Windows Phone.</value>
+    <comment>AboutPage</comment>
+  </data>
+  <data name="Contributors" xml:space="preserve">
+    <value>Unterstützt von</value>
+    <comment>AboutPage</comment>
+  </data>
+  <data name="MoreApps" xml:space="preserve">
+    <value>mehr apps</value>
+    <comment>AboutPage</comment>
+  </data>
+  <data name="PrivacyInfo" xml:space="preserve">
+    <value>datenschutz informationen</value>
+    <comment>About Page</comment>
+  </data>
+  <data name="RateAndReview" xml:space="preserve">
+    <value>bewerten und kritik schreiben</value>
+    <comment>AboutPage</comment>
+  </data>
+  <data name="SupportAndFeedback" xml:space="preserve">
+    <value>hilfe und feedback</value>
+    <comment>About Page</comment>
+  </data>
+  <data name="ApplicationVersion" xml:space="preserve">
+    <value>1.0</value>
+    <comment>General</comment>
+  </data>
 </root>

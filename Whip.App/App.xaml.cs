@@ -7,6 +7,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Whip.App.Resources;
+using PhoneKit.Framework.Support;
 
 namespace Whip.App
 {
@@ -84,6 +85,8 @@ namespace Whip.App
         // Code, der bei einem Navigationsfehler ausgeführt wird
         private void RootFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
         {
+            ErrorReportingManager.Instance.Save(e.Exception);
+
             if (Debugger.IsAttached)
             {
                 // Navigationsfehler. Unterbrechen und Debugger öffnen
@@ -94,6 +97,8 @@ namespace Whip.App
         // Code, der bei Ausnahmefehlern ausgeführt wird
         private void Application_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
         {
+            ErrorReportingManager.Instance.Save(e.ExceptionObject);
+
             if (Debugger.IsAttached)
             {
                 // Ein Ausnahmefehler ist aufgetreten. Unterbrechen und Debugger öffnen
@@ -136,6 +141,10 @@ namespace Whip.App
 
             // Dieser Handler wird nicht mehr benötigt und kann entfernt werden
             RootFrame.Navigated -= CompleteInitializePhoneApplication;
+
+            ErrorReportingManager.Instance.CheckAndReport(
+                "apps@bsautermeister.de",
+                "[Whip] Error Report");
         }
 
         private void CheckForResetNavigation(object sender, NavigationEventArgs e)
