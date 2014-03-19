@@ -195,6 +195,8 @@ namespace Whip.App
         /// </summary>
         private void LoadAdControl()
         {
+            ShowRemoveAdButton.Begin();
+
             if (!ConnectivityHelper.HasNetwork)
                 return;
 
@@ -207,9 +209,10 @@ namespace Whip.App
             adControl.MsApplicationId = "da6d9cd6-5ae8-41bd-bb99-f693afa63372";
             adControl.MsAdUnitId = "166592";
             adControl.AdDuplexAppId = "62359";
+            //adControl.IsTest = true;
 
             LayoutRoot.Children.Insert(1, adControl);
-            ShowRemoveAdButton.Begin();
+            
         }
     }
 }

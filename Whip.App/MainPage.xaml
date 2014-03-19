@@ -40,10 +40,10 @@
         <vm:MainViewModel x:Key="MainViewModel" />
         
 		<Storyboard x:Name="ShowRemoveAdButton">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RemoveAdButton" BeginTime="0:0:12.5">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RemoveAdButton" BeginTime="0:0:5.5">
                 <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.66"/>
 			</DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="StaticBanner" BeginTime="0:0:12.5">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="StaticBanner" BeginTime="0:0:5.5">
                 <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
