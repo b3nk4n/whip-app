@@ -107,6 +107,7 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -174,7 +175,9 @@
     <Content Include="AppResLib.dll.081A.mui" />
     <Content Include="AppResLib.dll.0c0a.mui" />
     <Content Include="Assets\Images\close.png" />
-    <Content Include="Assets\Images\whip.png" />
+    <Content Include="Assets\Images\games_ad.png" />
+    <Content Include="Assets\Images\whip.dark.png" />
+    <Content Include="Assets\Images\whip.light.png" />
     <None Include="Properties\AppManifest.xml">
       <SubType>Designer</SubType>
     </None>

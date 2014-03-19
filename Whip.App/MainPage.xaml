@@ -7,32 +7,75 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:adverts="clr-namespace:PhoneKit.Framework.Advertising;assembly=PhoneKit.Framework"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:vm="clr-namespace:Whip.App.ViewModel"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait">
-	<phone:PhoneApplicationPage.Resources>
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+    <phone:PhoneApplicationPage.Resources>
+        <vm:MainViewModel x:Key="MainViewModel" />
+        
 		<Storyboard x:Name="ShowRemoveAdButton">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RemoveAdButton" BeginTime="0:0:12.5">
                 <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.66"/>
 			</DoubleAnimationUsingKeyFrames>
-		</Storyboard>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="StaticBanner" BeginTime="0:0:12.5">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
 
         <Storyboard x:Name="ShowRemoveAdButtonInstant">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RemoveAdButton" BeginTime="0:0:0.5">
                 <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.66"/>
             </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="StaticBanner" BeginTime="0:0:0.5">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Name="HideTip">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="TipText" BeginTime="0:0:3">
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </phone:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot ist das Stammraster, in dem alle anderen Seiteninhalte platziert werden-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="Transparent"
+          DataContext="{StaticResource MainViewModel}">
+        <Image x:Name="StaticBanner" Source="Assets/Images/games_ad.png" VerticalAlignment="Top" HorizontalAlignment="Center" Opacity="0" />
         <Border x:Name="RemoveAdButton" Background="{StaticResource PhoneAccentBrush}" Width="32" Height="32" Opacity="0"
                 VerticalAlignment="Top" HorizontalAlignment="Right">
             <Image Source="Assets/Images/close.png" VerticalAlignment="Center" HorizontalAlignment="Center" />
         </Border>
-        <Image Source="Assets/Images/whip.png" />
+        <TextBlock x:Name="TipText" Text="Shake your phone like a whip..." VerticalAlignment="Bottom" TextAlignment="Center" 
+                   TextWrapping="Wrap" Width="300" Foreground="{StaticResource PhoneSubtleBrush}" 
+                   Margin="0,0,0,150" />
+        <Image Source="{Binding WhipImagePath}" />
     </Grid>
 
 </phone:PhoneApplicationPage>

@@ -17,6 +17,7 @@ using System.Threading;
 using PhoneKit.Framework.Advertising;
 using PhoneKit.Framework.Core.Net;
 using Microsoft.Phone.Tasks;
+using PhoneKit.Framework.Support;
 
 namespace Whip.App
 {
@@ -36,6 +37,11 @@ namespace Whip.App
         private MsDuplexAdControl adControl;
 
         /// <summary>
+        /// Indicates whether the tip is hidden.
+        /// </summary>
+        private bool _isTipHidden = false;
+
+        /// <summary>
         /// Creates a MainPage instance.
         /// </summary>
         public MainPage()
@@ -53,11 +59,23 @@ namespace Whip.App
                     }
                 };
 
+            StaticBanner.Tap += (s, e) =>
+            {
+                var marketplacetask = new MarketplaceSearchTask();
+                marketplacetask.SearchTerms = "Benjamin Sautermeister";
+                marketplacetask.Show();
+            };
+
             BuildLocalizedApplicationBar();
 
             InitializeSoundEffect();
             InitializeShakeGesture();
 
+            StartupActionManager.Instance.Register(1, ActionExecutionRule.MoreThan, () =>
+            {
+                if (!_isTipHidden)
+                    HideTip.Begin();
+            });
         }
 
         /// <summary>
@@ -80,9 +98,12 @@ namespace Whip.App
             {
                 // remove add control and button
                 RemoveAdButton.Visibility = System.Windows.Visibility.Collapsed;
+                StaticBanner.Visibility = System.Windows.Visibility.Collapsed;
                 if (adControl != null)
                     adControl.Visibility = System.Windows.Visibility.Collapsed;
             }
+
+            StartupActionManager.Instance.Fire();
         }
 
         /// <summary>
@@ -137,7 +158,7 @@ namespace Whip.App
             var sound = SoundEffects.Instance["whip"].CreateInstance();
             sound.Play();
 
-            Thread.Sleep(TimeSpan.FromMilliseconds(333));
+            Thread.Sleep(TimeSpan.FromMilliseconds(100));
 
             VibrationHelper.Vibrate(0.1f);
         }
@@ -149,8 +170,14 @@ namespace Whip.App
         {
             ShakeGesturesHelper.Instance.ShakeGesture += (s, e) =>
             {
+                if (DateTime.Now - _lastShakeEventTime < TimeSpan.FromMilliseconds(500))
+                    return;
+
                 Dispatcher.BeginInvoke(() =>
                 {
+                    if (!_isTipHidden)
+                        HideTip.Begin();
+
                     PlaySoundEffect();
 
                     _lastShakeEventTime = DateTime.Now;
@@ -158,8 +185,9 @@ namespace Whip.App
 
             };
             ShakeGesturesHelper.Instance.MinimumRequiredMovesForShake = 2;
-            ShakeGesturesHelper.Instance.WeakMagnitudeWithoutGravitationThreshold = 2.5f;
+            ShakeGesturesHelper.Instance.WeakMagnitudeWithoutGravitationThreshold = 2.75f;
             ShakeGesturesHelper.Instance.MinimumShakeVectorsNeededForShake = 4;
+            ShakeGesturesHelper.Instance.StillCounterThreshold = 15;
         }
 
         /// <summary>
@@ -180,7 +208,7 @@ namespace Whip.App
             adControl.MsAdUnitId = "166592";
             adControl.AdDuplexAppId = "62359";
 
-            LayoutRoot.Children.Insert(0, adControl);
+            LayoutRoot.Children.Insert(1, adControl);
             ShowRemoveAdButton.Begin();
         }
     }
