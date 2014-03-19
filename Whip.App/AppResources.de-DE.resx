@@ -170,4 +170,8 @@
   <data name="MessageBoxRemoveAdTitle" xml:space="preserve">
     <value>Nervt dich die Werbung?</value>
   </data>
+  <data name="ShakeTip" xml:space="preserve">
+    <value>Schwing dein Phone wie eine Peitsche...</value>
+    <comment>MainPage</comment>
+  </data>
 </root>

@@ -72,7 +72,7 @@
                 VerticalAlignment="Top" HorizontalAlignment="Right">
             <Image Source="Assets/Images/close.png" VerticalAlignment="Center" HorizontalAlignment="Center" />
         </Border>
-        <TextBlock x:Name="TipText" Text="Shake your phone like a whip..." VerticalAlignment="Bottom" TextAlignment="Center" 
+        <TextBlock x:Name="TipText" Text="{Binding Path=LocalizedResources.ShakeTip, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Bottom" TextAlignment="Center" 
                    TextWrapping="Wrap" Width="300" Foreground="{StaticResource PhoneSubtleBrush}" 
                    Margin="0,0,0,150" />
         <Image Source="{Binding WhipImagePath}" />

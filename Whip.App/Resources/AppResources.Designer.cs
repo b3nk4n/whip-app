@@ -178,6 +178,15 @@ namespace Whip.App.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Swing your phone like a whip... ähnelt.
+        /// </summary>
+        public static string ShakeTip {
+            get {
+                return ResourceManager.GetString("ShakeTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die support and feedback ähnelt.
         /// </summary>
         public static string SupportAndFeedback {
