@@ -48,6 +48,12 @@ namespace Whip.App
         {
             InitializeComponent();
 
+            Loaded += (s, e) =>
+                {
+                    // pre-play the sound (muted) to have it in memory
+                    SoundEffects.Instance["whip"].Play(0f, 0.0f, 0.0f);
+                };
+
             RemoveAdButton.Tap += (s, e) =>
                 {
                     if (MessageBox.Show(AppResources.MessageBoxRemoveAdContent, AppResources.MessageBoxRemoveAdTitle, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
@@ -208,7 +214,7 @@ namespace Whip.App
             adControl.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             adControl.MsApplicationId = "da6d9cd6-5ae8-41bd-bb99-f693afa63372";
             adControl.MsAdUnitId = "166592";
-            adControl.AdDuplexAppId = "62359";
+            adControl.AdDuplexAppId = "92959";
             //adControl.IsTest = true;
 
             LayoutRoot.Children.Insert(1, adControl);

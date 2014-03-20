@@ -4,8 +4,11 @@
   <Languages xmlns="">
     <Language code="de" />
     <Language code="de-DE" />
+    <Language code="fr-FR" />
+    <Language code="pt-PT" />
+    <Language code="id-ID" />
   </Languages>
-  <App xmlns="" ProductID="{561bb5d9-ed3a-4a8c-8176-0c3a2ad74a00}" Title="@AppResLib.dll,-100" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Whip.App author" Description="A simple whip app." Publisher="Whip.App" PublisherID="{5960c8ce-242d-494e-a87e-2cd059b5ca5e}">
+  <App xmlns="" ProductID="{561bb5d9-ed3a-4a8c-8176-0c3a2ad74a00}" Title="@AppResLib.dll,-100" RuntimeType="Silverlight" Version="1.1.0.0" Genre="apps.normal" Author="Benjamin Sautermeister" Description="A simple whip app." Publisher="bsautermeister" PublisherID="{5960c8ce-242d-494e-a87e-2cd059b5ca5e}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />

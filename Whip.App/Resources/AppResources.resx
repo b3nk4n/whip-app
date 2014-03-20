@@ -161,7 +161,7 @@
     <comment>About Page</comment>
   </data>
   <data name="ApplicationVersion" xml:space="preserve">
-    <value>1.0</value>
+    <value>1.1</value>
     <comment>General</comment>
   </data>
   <data name="MessageBoxRemoveAdContent" xml:space="preserve">
