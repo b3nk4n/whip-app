@@ -117,8 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ResourceFlowDirection" xml:space="preserve">
+    <value>LeftToRight</value>
+    <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
+  </data>
+  <data name="ResourceLanguage" xml:space="preserve">
+    <value>es-ES</value>
+    <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>Látigo</value>
+  </data>
   <data name="AboutTitle" xml:space="preserve">
-    <value>sobre</value>
+    <value>info</value>
     <comment>AboutPage</comment>
   </data>
   <data name="ApplicationAuthor" xml:space="preserve">
@@ -126,48 +137,37 @@
     <comment>AboutPage</comment>
   </data>
   <data name="ApplicationDescription" xml:space="preserve">
-    <value>Tenha uma experiência de chicote com seu Windows Phone.</value>
+    <value>Tener una experiencia látigo con su Windows Phone.</value>
     <comment>AboutPage</comment>
   </data>
-  <data name="ApplicationTitle" xml:space="preserve">
-    <value>Chicote</value>
+  <data name="MoreApps" xml:space="preserve">
+    <value>más aplicaciones</value>
+    <comment>AboutPage</comment>
+  </data>
+  <data name="PrivacyInfo" xml:space="preserve">
+    <value>info privacidad</value>
+    <comment>About Page</comment>
+  </data>
+  <data name="RateAndReview" xml:space="preserve">
+    <value>valorar y comentar</value>
+    <comment>AboutPage</comment>
+  </data>
+  <data name="SupportAndFeedback" xml:space="preserve">
+    <value>apoyo y retroalimentación</value>
+    <comment>About Page</comment>
   </data>
   <data name="ApplicationVersion" xml:space="preserve">
     <value>1.2</value>
     <comment>General</comment>
   </data>
   <data name="MessageBoxRemoveAdContent" xml:space="preserve">
-    <value>Classifique o nosso aplicativo. Todos os anúncios irão desaparecer para sempre!</value>
+    <value>Nuestra tasa de aplicación. Todos los anuncios desaparecerán para siempre!</value>
   </data>
   <data name="MessageBoxRemoveAdTitle" xml:space="preserve">
-    <value>Aborrecido pelos anúncios?</value>
-  </data>
-  <data name="MoreApps" xml:space="preserve">
-    <value>mais aplicativos</value>
-    <comment>AboutPage</comment>
-  </data>
-  <data name="PrivacyInfo" xml:space="preserve">
-    <value>informações de privacidade</value>
-    <comment>About Page</comment>
-  </data>
-  <data name="RateAndReview" xml:space="preserve">
-    <value>classificar e dar opinião</value>
-    <comment>AboutPage</comment>
-  </data>
-  <data name="ResourceFlowDirection" xml:space="preserve">
-    <value>LeftToRight</value>
-    <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
-  </data>
-  <data name="ResourceLanguage" xml:space="preserve">
-    <value>pt-PT</value>
-    <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
+    <value>Le molestan los anuncios?</value>
   </data>
   <data name="ShakeTip" xml:space="preserve">
-    <value>Balançar o seu telefone como um chicote ...</value>
+    <value>Agitar el teléfono como un látigo...</value>
     <comment>MainPage</comment>
-  </data>
-  <data name="SupportAndFeedback" xml:space="preserve">
-    <value>suporte e feedback</value>
-    <comment>About Page</comment>
   </data>
 </root>

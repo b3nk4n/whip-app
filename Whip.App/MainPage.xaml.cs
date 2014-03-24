@@ -67,8 +67,9 @@ namespace Whip.App
 
             StaticBanner.Tap += (s, e) =>
             {
-                var marketplacetask = new MarketplaceSearchTask();
-                marketplacetask.SearchTerms = "Benjamin Sautermeister";
+                var marketplacetask = new MarketplaceDetailTask();
+                marketplacetask.ContentType = MarketplaceContentType.Applications;
+                marketplacetask.ContentIdentifier = "ad1227e4-9f80-4967-957f-6db140dc0c90";
                 marketplacetask.Show();
             };
 
@@ -103,10 +104,8 @@ namespace Whip.App
             else
             {
                 // remove add control and button
-                RemoveAdButton.Visibility = System.Windows.Visibility.Collapsed;
-                StaticBanner.Visibility = System.Windows.Visibility.Collapsed;
-                if (adControl != null)
-                    adControl.Visibility = System.Windows.Visibility.Collapsed;
+                AdvertsConteriner.Visibility = System.Windows.Visibility.Collapsed;
+                
             }
 
             StartupActionManager.Instance.Fire();
@@ -164,7 +163,7 @@ namespace Whip.App
             var sound = SoundEffects.Instance["whip"].CreateInstance();
             sound.Play();
 
-            Thread.Sleep(TimeSpan.FromMilliseconds(100));
+            Thread.Sleep(TimeSpan.FromMilliseconds(150));
 
             VibrationHelper.Vibrate(0.1f);
         }
@@ -201,24 +200,19 @@ namespace Whip.App
         /// </summary>
         private void LoadAdControl()
         {
-            ShowRemoveAdButton.Begin();
-
             if (!ConnectivityHelper.HasNetwork)
                 return;
 
+            ShowCommercialBanner.Begin();
+
             adControl = new MsDuplexAdControl();
-            adControl.AdReceived += (s, e) =>
-                {
-                    ShowRemoveAdButtonInstant.Begin();
-                };
             adControl.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             adControl.MsApplicationId = "da6d9cd6-5ae8-41bd-bb99-f693afa63372";
             adControl.MsAdUnitId = "166592";
             adControl.AdDuplexAppId = "92959";
-            //adControl.IsTest = true;
+            adControl.IsTest = true;
 
-            LayoutRoot.Children.Insert(1, adControl);
-            
+            DynamicAdControlContainer.Child = adControl;
         }
     }
 }

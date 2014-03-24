@@ -97,20 +97,11 @@ namespace Whip.App.Resources {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die 1.1 ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 1.2 ähnelt.
         /// </summary>
         public static string ApplicationVersion {
             get {
                 return ResourceManager.GetString("ApplicationVersion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Contributors ähnelt.
-        /// </summary>
-        public static string Contributors {
-            get {
-                return ResourceManager.GetString("Contributors", resourceCulture);
             }
         }
         

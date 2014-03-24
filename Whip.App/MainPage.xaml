@@ -39,27 +39,18 @@
     <phone:PhoneApplicationPage.Resources>
         <vm:MainViewModel x:Key="MainViewModel" />
         
-		<Storyboard x:Name="ShowRemoveAdButton">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RemoveAdButton" BeginTime="0:0:5.5">
-                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.66"/>
-			</DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="StaticBanner" BeginTime="0:0:5.5">
+        <Storyboard x:Name="ShowCommercialBanner">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="DynamicAdControlContainer" BeginTime="0:0:7.5">
                 <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-
-        <Storyboard x:Name="ShowRemoveAdButtonInstant">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RemoveAdButton" BeginTime="0:0:0.5">
-                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.66"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="StaticBanner" BeginTime="0:0:0.5">
-                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="StaticBanner" BeginTime="0:0:7">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
 
         <Storyboard x:Name="HideTip">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="TipText" BeginTime="0:0:3">
-                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="TipText" BeginTime="0:0:5">
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </phone:PhoneApplicationPage.Resources>
@@ -67,11 +58,17 @@
     <!--LayoutRoot ist das Stammraster, in dem alle anderen Seiteninhalte platziert werden-->
     <Grid x:Name="LayoutRoot" Background="Transparent"
           DataContext="{StaticResource MainViewModel}">
-        <Image x:Name="StaticBanner" Source="Assets/Images/games_ad.png" VerticalAlignment="Top" HorizontalAlignment="Center" Opacity="0" />
-        <Border x:Name="RemoveAdButton" Background="{StaticResource PhoneAccentBrush}" Width="32" Height="32" Opacity="0"
+        <Grid x:Name="AdvertsConteriner">
+            <Image x:Name="StaticBanner" Source="Assets/Images/advert.png" VerticalAlignment="Top" HorizontalAlignment="Center" Width="480" Height="80" />
+            <Border x:Name="DynamicAdControlContainer" Background="{StaticResource PhoneChromeBrush}" VerticalAlignment="Top" Height="80" Opacity="0">
+                <!-- add control will be added here -->
+            </Border>
+            <Border x:Name="RemoveAdButton" Background="{StaticResource PhoneAccentBrush}" Width="32" Height="32" Opacity="0.8"
                 VerticalAlignment="Top" HorizontalAlignment="Right">
-            <Image Source="Assets/Images/close.png" VerticalAlignment="Center" HorizontalAlignment="Center" />
-        </Border>
+                <Image Source="Assets/Images/close.png" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            </Border>
+        </Grid>
+        
         <TextBlock x:Name="TipText" Text="{Binding Path=LocalizedResources.ShakeTip, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Bottom" TextAlignment="Center" 
                    TextWrapping="Wrap" Width="300" Foreground="{StaticResource PhoneSubtleBrush}" 
                    Margin="0,0,0,150" />
