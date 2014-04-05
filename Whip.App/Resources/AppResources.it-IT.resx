@@ -170,4 +170,16 @@
     <value>Altalena il telefono come una frusta...</value>
     <comment>MainPage</comment>
   </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>impostazioni</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="SensitivitySetting" xml:space="preserve">
+    <value>Sensibilità</value>
+    <comment>Settings Page</comment>
+  </data>
+  <data name="VibrationSetting" xml:space="preserve">
+    <value>Vibrazione</value>
+    <comment>Settings Page</comment>
+  </data>
 </root>

@@ -97,7 +97,7 @@ namespace Whip.App.Resources {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die 1.2 ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 1.3 ähnelt.
         /// </summary>
         public static string ApplicationVersion {
             get {
@@ -169,6 +169,24 @@ namespace Whip.App.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sensitivity ähnelt.
+        /// </summary>
+        public static string SensitivitySetting {
+            get {
+                return ResourceManager.GetString("SensitivitySetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die settings ähnelt.
+        /// </summary>
+        public static string SettingsTitle {
+            get {
+                return ResourceManager.GetString("SettingsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Swing your phone like a whip... ähnelt.
         /// </summary>
         public static string ShakeTip {
@@ -183,6 +201,15 @@ namespace Whip.App.Resources {
         public static string SupportAndFeedback {
             get {
                 return ResourceManager.GetString("SupportAndFeedback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Vibration ähnelt.
+        /// </summary>
+        public static string VibrationSetting {
+            get {
+                return ResourceManager.GetString("VibrationSetting", resourceCulture);
             }
         }
     }

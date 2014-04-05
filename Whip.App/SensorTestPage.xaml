@@ -1,0 +1,123 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Whip.App.SensorTestPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:conv="clr-namespace:PhoneKit.Framework.Conversion;assembly=PhoneKit.Framework"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:SlideTransition Mode="SlideUpFadeIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:SlideTransition Mode="SlideUpFadeIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:SlideTransition Mode="SlideDownFadeOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:SlideTransition Mode="SlideDownFadeOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+    <phone:PhoneApplicationPage.Resources>
+        <conv:DoubleToStringConverter x:Key="doubleToStringConverter" />
+    </phone:PhoneApplicationPage.Resources>
+
+    <!--LayoutRoot ist das Stammraster, in dem alle anderen Seiteninhalte platziert werden-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Accelerometer shakes: " Style="{StaticResource PhoneTextNormalStyle}" />
+                <TextBlock x:Name="ShakeCounter" Text="0" Style="{StaticResource PhoneTextNormalStyle}" />
+                <Button x:Name="ResetMinMax" Content="Reset min/max" Height="64" Click="ResetMinMax_Click" />
+            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="63*" />
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="80*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Grid.ColumnSpan="2">
+                    <TextBlock x:Name="AccX" Text="0" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <TextBlock x:Name="AccY" Text="0" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <TextBlock x:Name="AccZ" Text="0" Style="{StaticResource PhoneTextNormalStyle}"/>
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <TextBlock x:Name="MinMaxX" Text="0" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <TextBlock x:Name="MinMaxY" Text="0" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <TextBlock x:Name="MinMaxZ" Text="0" Style="{StaticResource PhoneTextNormalStyle}"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
+        <!--ContentPanel - zusätzliche Inhalte hier platzieren-->
+        <Grid x:Name="ContentPanel" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ScrollViewer Padding="0,0,50,0">
+                <StackPanel>
+                    <TextBlock Text="ShakeMagnitudeWithoutGravitationThreshold" Style="{StaticResource PhoneTextSubtleStyle}" />
+                    <Slider x:Name="ShakeMagnitudeWithoutGravitationThresholdSlider" MinHeight="0.01" Maximum="5.0" Margin="0,0,0,-36" />
+                    <TextBlock Text="{Binding ElementName=ShakeMagnitudeWithoutGravitationThresholdSlider, Path=Value, Converter={StaticResource doubleToStringConverter}, ConverterParameter=2}" Style="{StaticResource PhoneTextSmallStyle}" TextAlignment="Right" />
+
+                    <TextBlock Text="StillCounterThreshold" Style="{StaticResource PhoneTextSubtleStyle}" />
+                    <Slider x:Name="StillCounterThresholdSlider" MinHeight="1" Maximum="50" Margin="0,0,0,-32" />
+                    <TextBlock Text="{Binding ElementName=StillCounterThresholdSlider, Path=Value}" Style="{StaticResource PhoneTextSmallStyle}" TextAlignment="Right" />
+
+                    <TextBlock Text="StillMagnitudeWithoutGravitationThreshold" Style="{StaticResource PhoneTextSubtleStyle}" />
+                    <Slider x:Name="StillMagnitudeWithoutGravitationThresholdSlider" MinHeight="0.005" Maximum="2.0" Margin="0,0,0,-36" />
+                    <TextBlock Text="{Binding ElementName=StillMagnitudeWithoutGravitationThresholdSlider, Path=Value}" Style="{StaticResource PhoneTextSmallStyle}" TextAlignment="Right" />
+
+                    <TextBlock Text="MaximumStillVectorsNeededForAverage" Style="{StaticResource PhoneTextSubtleStyle}" />
+                    <Slider x:Name="MaximumStillVectorsNeededForAverageSlider" MinHeight="1" Maximum="50" Margin="0,0,0,-36" />
+                    <TextBlock Text="{Binding ElementName=MaximumStillVectorsNeededForAverageSlider, Path=Value}" Style="{StaticResource PhoneTextSmallStyle}" TextAlignment="Right" />
+
+                    <TextBlock Text="MinimumStillVectorsNeededForAverage" Style="{StaticResource PhoneTextSubtleStyle}" />
+                    <Slider x:Name="MinimumStillVectorsNeededForAverageSlider" MinHeight="1" Maximum="20" Margin="0,0,0,-36" />
+                    <TextBlock Text="{Binding ElementName=MinimumStillVectorsNeededForAverageSlider, Path=Value}" Style="{StaticResource PhoneTextSmallStyle}" TextAlignment="Right" />
+
+                    <TextBlock Text="MinimumShakeVectorsNeededForShake" Style="{StaticResource PhoneTextSubtleStyle}" />
+                    <Slider x:Name="MinimumShakeVectorsNeededForShakeSlider" MinHeight="1" Maximum="20" Margin="0,0,0,-36" />
+                    <TextBlock Text="{Binding ElementName=MinimumShakeVectorsNeededForShakeSlider, Path=Value}" Style="{StaticResource PhoneTextSmallStyle}" TextAlignment="Right" />
+
+                    <TextBlock Text="WeakMagnitudeWithoutGravitationThreshold" Style="{StaticResource PhoneTextSubtleStyle}" />
+                    <Slider x:Name="WeakMagnitudeWithoutGravitationThresholdSlider" MinHeight="0.01" Maximum="5.0" Margin="0,0,0,-36" />
+                    <TextBlock Text="{Binding ElementName=WeakMagnitudeWithoutGravitationThresholdSlider, Path=Value}" Style="{StaticResource PhoneTextSmallStyle}" TextAlignment="Right" />
+
+                    <TextBlock Text="MinimumRequiredMovesForShake" Style="{StaticResource PhoneTextSubtleStyle}" />
+                    <Slider x:Name="MinimumRequiredMovesForShakeSlider" MinHeight="1" Maximum="15" Margin="0,0,0,-36" />
+                    <TextBlock Text="{Binding ElementName=MinimumRequiredMovesForShakeSlider, Path=Value}" Style="{StaticResource PhoneTextSmallStyle}" TextAlignment="Right" />
+
+                    <TextBlock Text="MinimumSoundDelayInMilliseconds" Style="{StaticResource PhoneTextSubtleStyle}" />
+                    <Slider x:Name="MinimumSoundDelayInMillisecondsSlider" MinHeight="1" Maximum="20" Margin="0,0,0,-36" />
+                    <TextBlock Text="{Binding ElementName=MinimumSoundDelayInMillisecondsSlider, Path=Value, Converter={StaticResource doubleToStringConverter}, ConverterParameter=0}" Style="{StaticResource PhoneTextSmallStyle}" TextAlignment="Right" />
+                </StackPanel>
+            </ScrollViewer>
+            <Button Grid.Row="1" x:Name="UpdateButton" Content="update" Click="UpdateButton_Click" />
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

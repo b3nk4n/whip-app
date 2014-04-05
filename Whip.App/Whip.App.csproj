@@ -100,13 +100,20 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\ShakeSensitivityData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SensorTestPage.xaml.cs">
+      <DependentUpon>SensorTestPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\MainViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +129,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SensorTestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppResLib.dll.0407.mui" />
@@ -134,7 +149,9 @@
     <Content Include="AppResLib.dll.080A.mui" />
     <Content Include="AppResLib.dll.0816.mui" />
     <Content Include="AppResLib.dll.0c0a.mui" />
-    <Content Include="Assets\Images\advert.png" />
+    <Content Include="Assets\Adverts\pocketBRAIN_adduplex.png" />
+    <Content Include="Assets\Adverts\powernAPP_adduplex.png" />
+    <Content Include="Assets\Adverts\ScribbleHunter_adduplex.png" />
     <Content Include="Assets\Images\close.png" />
     <Content Include="Assets\Images\whip.dark.png" />
     <Content Include="Assets\Images\whip.light.png" />
@@ -181,6 +198,7 @@
     </Reference>
     <Reference Include="Microsoft.Advertising.Mobile, Version=6.2.960.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Advertising.Mobile.UI, Version=6.2.960.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>..\Lib\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>

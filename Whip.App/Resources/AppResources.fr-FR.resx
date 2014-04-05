@@ -122,38 +122,38 @@
     <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
   </data>
   <data name="ResourceLanguage" xml:space="preserve">
-    <value>de-DE</value>
+    <value>fr-FR</value>
     <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
   </data>
   <data name="ApplicationTitle" xml:space="preserve">
-    <value>Peitsche</value>
+    <value>Fouet</value>
   </data>
   <data name="AboutTitle" xml:space="preserve">
-    <value>hilfe</value>
+    <value>informations</value>
     <comment>AboutPage</comment>
   </data>
   <data name="ApplicationAuthor" xml:space="preserve">
-    <value>von Benjamin Sautermeister</value>
+    <value>par Benjamin Sautermeister</value>
     <comment>AboutPage</comment>
   </data>
   <data name="ApplicationDescription" xml:space="preserve">
-    <value>Erlebe den lustigen Peitschen-Spaß auf deinem Windows Phone.</value>
+    <value>Avoir une expérience de fouet avec votre Windows Phone.</value>
     <comment>AboutPage</comment>
   </data>
   <data name="MoreApps" xml:space="preserve">
-    <value>mehr apps</value>
+    <value>plus d'applications</value>
     <comment>AboutPage</comment>
   </data>
   <data name="PrivacyInfo" xml:space="preserve">
-    <value>datenschutz informationen</value>
+    <value>politique de confidentialité</value>
     <comment>About Page</comment>
   </data>
   <data name="RateAndReview" xml:space="preserve">
-    <value>bewerten und kritik schreiben</value>
+    <value>évaluation</value>
     <comment>AboutPage</comment>
   </data>
   <data name="SupportAndFeedback" xml:space="preserve">
-    <value>hilfe und feedback</value>
+    <value>retour d'expérience</value>
     <comment>About Page</comment>
   </data>
   <data name="ApplicationVersion" xml:space="preserve">
@@ -161,21 +161,21 @@
     <comment>General</comment>
   </data>
   <data name="MessageBoxRemoveAdContent" xml:space="preserve">
-    <value>Bewerte einfach unsere App. Die Werbung verschwindet dann für immer!</value>
+    <value>Évaluez notre application. Les annonces vont disparaître pour toujours!</value>
   </data>
   <data name="MessageBoxRemoveAdTitle" xml:space="preserve">
-    <value>Nervt dich die Werbung?</value>
+    <value>Agacé par les publicités?</value>
   </data>
   <data name="ShakeTip" xml:space="preserve">
-    <value>Schwing dein Smartphone wie eine Peitsche...</value>
+    <value>Balancez votre téléphone comme un fouet ...</value>
     <comment>MainPage</comment>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>einstellungen</value>
+    <value>paramètres</value>
     <comment>SettingsPage</comment>
   </data>
   <data name="SensitivitySetting" xml:space="preserve">
-    <value>Empfindlichkeit</value>
+    <value>Sensibilité</value>
     <comment>Settings Page</comment>
   </data>
   <data name="VibrationSetting" xml:space="preserve">

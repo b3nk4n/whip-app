@@ -38,15 +38,6 @@
 
     <phone:PhoneApplicationPage.Resources>
         <vm:MainViewModel x:Key="MainViewModel" />
-        
-        <Storyboard x:Name="ShowCommercialBanner">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="DynamicAdControlContainer" BeginTime="0:0:7.5">
-                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="StaticBanner" BeginTime="0:0:7">
-                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
 
         <Storyboard x:Name="HideTip">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="TipText" BeginTime="0:0:5">
@@ -59,10 +50,7 @@
     <Grid x:Name="LayoutRoot" Background="Transparent"
           DataContext="{StaticResource MainViewModel}">
         <Grid x:Name="AdvertsConteriner">
-            <Image x:Name="StaticBanner" Source="Assets/Images/advert.png" VerticalAlignment="Top" HorizontalAlignment="Center" Width="480" Height="80" />
-            <Border x:Name="DynamicAdControlContainer" Background="{StaticResource PhoneChromeBrush}" VerticalAlignment="Top" Height="80" Opacity="0">
-                <!-- add control will be added here -->
-            </Border>
+            <adverts:OfflineAdControl x:Name="OfflineAdControl" Width="480" Height="80" VerticalAlignment="Top" toolkit:TiltEffect.IsTiltEnabled="True" />
             <Border x:Name="RemoveAdButton" Background="{StaticResource PhoneAccentBrush}" Width="32" Height="32" Opacity="0.8"
                 VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Image Source="Assets/Images/close.png" VerticalAlignment="Center" HorizontalAlignment="Center" />
