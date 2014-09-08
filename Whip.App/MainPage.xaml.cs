@@ -369,10 +369,11 @@ namespace Whip.App
         /// </summary>
         private void LoadAdControl()
         {
+            OfflineAdControl.AddAdvert(new AdvertData(new Uri("/Assets/Adverts/Photo-Info_adduplex.png", UriKind.Relative), AdvertData.ActionTypes.AppId, "ac39aa30-c9b1-4dc6-af2d-1cc17d9807cc"));
             OfflineAdControl.AddAdvert(new AdvertData(new Uri("/Assets/Adverts/pocketBRAIN_adduplex.png", UriKind.Relative), AdvertData.ActionTypes.AppId, "ad1227e4-9f80-4967-957f-6db140dc0c90"));
             OfflineAdControl.AddAdvert(new AdvertData(new Uri("/Assets/Adverts/powernAPP_adduplex.png", UriKind.Relative), AdvertData.ActionTypes.AppId, "92740dff-b2e1-4813-b08b-c6429df03356"));
+            OfflineAdControl.AddAdvert(new AdvertData(new Uri("/Assets/Adverts/frequenzer_adduplex.png", UriKind.Relative), AdvertData.ActionTypes.AppId, "92bac4f7-05eb-47ec-a75b-11f077f0c8f6"));
             OfflineAdControl.AddAdvert(new AdvertData(new Uri("/Assets/Adverts/ScribbleHunter_adduplex.png", UriKind.Relative), AdvertData.ActionTypes.AppId, "ed250596-e670-4d22-aee1-8ed0a08c411f"));
-            OfflineAdControl.AddAdvert(new AdvertData(new Uri("/Assets/Banners/frequenzer_adduplex.png", UriKind.Relative), AdvertData.ActionTypes.AppId, "92bac4f7-05eb-47ec-a75b-11f077f0c8f6"));
         }
     }
 }

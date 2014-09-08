@@ -150,6 +150,7 @@
     <Content Include="AppResLib.dll.0816.mui" />
     <Content Include="AppResLib.dll.0c0a.mui" />
     <Content Include="Assets\Adverts\frequenzer_adduplex.png" />
+    <Content Include="Assets\Adverts\Photo-Info_adduplex.png" />
     <Content Include="Assets\Adverts\pocketBRAIN_adduplex.png" />
     <Content Include="Assets\Adverts\powernAPP_adduplex.png" />
     <Content Include="Assets\Adverts\ScribbleHunter_adduplex.png" />
