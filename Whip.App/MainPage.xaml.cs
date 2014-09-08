@@ -221,7 +221,7 @@ namespace Whip.App
                 AdvertsConteriner.Visibility = System.Windows.Visibility.Collapsed;
             }
 
-            StartupActionManager.Instance.Fire();
+            StartupActionManager.Instance.Fire(e);
         }
 
         /// <summary>
