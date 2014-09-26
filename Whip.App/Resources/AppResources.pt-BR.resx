@@ -133,8 +133,24 @@
     <value>Chicote</value>
   </data>
   <data name="ApplicationVersion" xml:space="preserve">
-    <value>1.3.1</value>
+    <value>1.4</value>
     <comment>General</comment>
+  </data>
+  <data name="InAppStoreLoading" xml:space="preserve">
+    <value>zzzZZZ...</value>
+    <comment>InAppStorePage</comment>
+  </data>
+  <data name="InAppStoreNoProducts" xml:space="preserve">
+    <value>There are currently no in-app purchases available. Please try again later.</value>
+    <comment>InAppStorePage</comment>
+  </data>
+  <data name="InAppStorePurchased" xml:space="preserve">
+    <value>comprou</value>
+    <comment>InAppStorePage</comment>
+  </data>
+  <data name="InAppStoreTitle" xml:space="preserve">
+    <value>compras na aplicação</value>
+    <comment>InAppStorePage</comment>
   </data>
   <data name="MessageBoxRemoveAdContent" xml:space="preserve">
     <value>Classifique o nosso aplicativo. Todos os anúncios irão desaparecer para sempre!</value>

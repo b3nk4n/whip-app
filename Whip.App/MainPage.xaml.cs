@@ -17,6 +17,7 @@ using PhoneKit.Framework.Support;
 using Whip.App.Model;
 using Windows.Devices.Sensors;
 using System.Diagnostics;
+using PhoneKit.Framework.InAppPurchase;
 
 namespace Whip.App
 {
@@ -68,13 +69,7 @@ namespace Whip.App
 
             RemoveAdButton.Tap += (s, e) =>
                 {
-                    if (MessageBox.Show(AppResources.MessageBoxRemoveAdContent, AppResources.MessageBoxRemoveAdTitle, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
-                    {
-                        Settings.HasReviewed.Value = true;
-
-                        var reviewTask = new MarketplaceReviewTask();
-                        reviewTask.Show();
-                    }
+                    NavigationService.Navigate(new Uri("/InAppStorePage.xaml", UriKind.Relative));
                 };
 
             BuildLocalizedApplicationBar();
@@ -210,15 +205,15 @@ namespace Whip.App
             // activate shake listener
             ShakeGesturesHelper.Instance.Active = true;
 
-            if (!Settings.HasReviewed.Value)
-            {
-                AdvertsConteriner.Visibility = System.Windows.Visibility.Visible;
-                OfflineAdControl.Start();
-            }
-            else
+            if (Settings.HasReviewed.Value || InAppPurchaseHelper.IsProductActive(AppConstants.IAP_NO_ADVERTS))
             {
                 OfflineAdControl.Stop();
                 AdvertsConteriner.Visibility = System.Windows.Visibility.Collapsed;
+            }
+            else
+            {
+                AdvertsConteriner.Visibility = System.Windows.Visibility.Visible;
+                OfflineAdControl.Start();
             }
 
             StartupActionManager.Instance.Fire(e);
@@ -258,13 +253,21 @@ namespace Whip.App
             };
             ApplicationBar.MenuItems.Add(appBarMenuItem1);
 
-            // about
-            ApplicationBarMenuItem appBarMenuItem2 = new ApplicationBarMenuItem(AppResources.AboutTitle.ToLower());
+            // in-app store
+            ApplicationBarMenuItem appBarMenuItem2 = new ApplicationBarMenuItem(AppResources.InAppStoreTitle.ToLower());
             appBarMenuItem2.Click += (s, e) =>
+            {
+                NavigationService.Navigate(new Uri("/InAppStorePage.xaml", UriKind.Relative));
+            };
+            ApplicationBar.MenuItems.Add(appBarMenuItem2);
+
+            // about
+            ApplicationBarMenuItem appBarMenuItem3 = new ApplicationBarMenuItem(AppResources.AboutTitle.ToLower());
+            appBarMenuItem3.Click += (s, e) =>
                 {
                     NavigationService.Navigate(new Uri("/AboutPage.xaml", UriKind.Relative));
                 };
-            ApplicationBar.MenuItems.Add(appBarMenuItem2);
+            ApplicationBar.MenuItems.Add(appBarMenuItem3);
 
 #if TEST_SENSOR_PAGE_ACTIVE
             // test sensor for debug/testing

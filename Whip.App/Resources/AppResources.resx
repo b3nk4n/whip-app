@@ -157,7 +157,7 @@
     <comment>About Page</comment>
   </data>
   <data name="ApplicationVersion" xml:space="preserve">
-    <value>1.3.1</value>
+    <value>1.4</value>
     <comment>General</comment>
   </data>
   <data name="MessageBoxRemoveAdContent" xml:space="preserve">
@@ -181,5 +181,21 @@
   <data name="VibrationSetting" xml:space="preserve">
     <value>Vibration</value>
     <comment>Settings Page</comment>
+  </data>
+  <data name="InAppStoreLoading" xml:space="preserve">
+    <value>loading...</value>
+    <comment>InAppStorePage</comment>
+  </data>
+  <data name="InAppStoreNoProducts" xml:space="preserve">
+    <value>There are currently no in-app purchases available. Please try again later.</value>
+    <comment>InAppStorePage</comment>
+  </data>
+  <data name="InAppStorePurchased" xml:space="preserve">
+    <value>purchased</value>
+    <comment>InAppStorePage</comment>
+  </data>
+  <data name="InAppStoreTitle" xml:space="preserve">
+    <value>in-app store</value>
+    <comment>InAppStorePage</comment>
   </data>
 </root>

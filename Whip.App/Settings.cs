@@ -15,7 +15,7 @@ namespace Whip.App
         /// <summary>
         /// Indicates whether the user has reviewed the app.
         /// </summary>
-        public static StoredObject<bool> HasReviewed = new StoredObject<bool>("hasReviewed", false);
+        public static StoredObject<bool> HasReviewed = new StoredObject<bool>("hasReviewed", false); // NOTE: we keep this setting. Previous users with an review don't have to buy the product :)
 
         /// <summary>
         /// Indicates whether the vibration is enabled.

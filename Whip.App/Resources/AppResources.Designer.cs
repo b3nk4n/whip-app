@@ -97,11 +97,47 @@ namespace Whip.App.Resources {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die 1.3.1 ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 1.4 ähnelt.
         /// </summary>
         public static string ApplicationVersion {
             get {
                 return ResourceManager.GetString("ApplicationVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die loading... ähnelt.
+        /// </summary>
+        public static string InAppStoreLoading {
+            get {
+                return ResourceManager.GetString("InAppStoreLoading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die There are currently no in-app purchases available. Please try again later. ähnelt.
+        /// </summary>
+        public static string InAppStoreNoProducts {
+            get {
+                return ResourceManager.GetString("InAppStoreNoProducts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die purchased ähnelt.
+        /// </summary>
+        public static string InAppStorePurchased {
+            get {
+                return ResourceManager.GetString("InAppStorePurchased", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die in-app store ähnelt.
+        /// </summary>
+        public static string InAppStoreTitle {
+            get {
+                return ResourceManager.GetString("InAppStoreTitle", resourceCulture);
             }
         }
         
