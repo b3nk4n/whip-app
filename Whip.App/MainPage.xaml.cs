@@ -18,6 +18,9 @@ using Whip.App.Model;
 using Windows.Devices.Sensors;
 using System.Diagnostics;
 using PhoneKit.Framework.InAppPurchase;
+using System.Threading.Tasks;
+using PhoneKit.Framework.Core.Collections;
+using System.Collections.Generic;
 
 namespace Whip.App
 {
@@ -72,11 +75,24 @@ namespace Whip.App
                     NavigationService.Navigate(new Uri("/InAppStorePage.xaml", UriKind.Relative));
                 };
 
+            AdControl.AdReceived += (s, e) =>
+                {
+                    OfflineAdControl.Visibility = System.Windows.Visibility.Collapsed;
+                };
+
             BuildLocalizedApplicationBar();
 
-            InitializeSoundEffect();
-            InitializeShakeGesture();
-            InitializeShakeSensitivities();
+            try
+            {
+                InitializeSoundEffect();
+                InitializeShakeGesture();
+                InitializeShakeSensitivities();
+            }
+            catch (Exception) {
+
+            }
+
+
             LoadAdControl();
 
             StartupActionManager.Instance.Register(1, ActionExecutionRule.MoreThan, () =>
@@ -295,9 +311,12 @@ namespace Whip.App
         private void PlaySoundEffect()
         {
             var sound = SoundEffects.Instance["whip"].CreateInstance();
-            sound.Play();
 
-            Thread.Sleep(TimeSpan.FromMilliseconds(150));
+            if (sound != null)
+                sound.Play();
+
+            Task.Delay(150);
+            //Thread.Sleep(TimeSpan.FromMilliseconds(150));
 
             if (Settings.VibrationEnabled.Value)
                 VibrationHelper.Vibrate(0.1f);
@@ -308,18 +327,21 @@ namespace Whip.App
         /// </summary>
         private void InitializeShakeGesture()
         {
+            if (ShakeGesturesHelper.Instance == null)
+                return;
+
             ShakeGesturesHelper.Instance.ShakeGesture += (s, e) =>
             {
                 // filter by time
                 if (DateTime.Now - _lastShakeEventTime < TimeSpan.FromMilliseconds(CurrentSensitivity.MinimumSoundDelayInMilliseconds))
                 {
-                    Debug.WriteLine("Filer Time");
+                    Debug.WriteLine("Filter Time");
                     return;
                 }
 
                 if (DateTime.Now > _isActiveForWhipUntil)
                 {
-                    Debug.WriteLine("Filer by closed");
+                    Debug.WriteLine("Filter by closed");
                     return;
                 }
 
@@ -372,11 +394,22 @@ namespace Whip.App
         /// </summary>
         private void LoadAdControl()
         {
-            OfflineAdControl.AddAdvert(new AdvertData(new Uri("/Assets/Adverts/Photo-Info_adduplex.png", UriKind.Relative), AdvertData.ActionTypes.AppId, "ac39aa30-c9b1-4dc6-af2d-1cc17d9807cc"));
-            OfflineAdControl.AddAdvert(new AdvertData(new Uri("/Assets/Adverts/pocketBRAIN_adduplex.png", UriKind.Relative), AdvertData.ActionTypes.AppId, "ad1227e4-9f80-4967-957f-6db140dc0c90"));
-            OfflineAdControl.AddAdvert(new AdvertData(new Uri("/Assets/Adverts/powernAPP_adduplex.png", UriKind.Relative), AdvertData.ActionTypes.AppId, "92740dff-b2e1-4813-b08b-c6429df03356"));
-            OfflineAdControl.AddAdvert(new AdvertData(new Uri("/Assets/Adverts/frequenzer_adduplex.png", UriKind.Relative), AdvertData.ActionTypes.AppId, "92bac4f7-05eb-47ec-a75b-11f077f0c8f6"));
-            OfflineAdControl.AddAdvert(new AdvertData(new Uri("/Assets/Adverts/ScribbleHunter_adduplex.png", UriKind.Relative), AdvertData.ActionTypes.AppId, "ed250596-e670-4d22-aee1-8ed0a08c411f"));
+            List<AdvertData> bannerList = new List<AdvertData>();
+            bannerList.Add(new AdvertData(new Uri("/Assets/Adverts/Photo-Info_adduplex.png", UriKind.Relative), AdvertData.ActionTypes.AppId, "ac39aa30-c9b1-4dc6-af2d-1cc17d9807cc"));
+            bannerList.Add(new AdvertData(new Uri("/Assets/Adverts/pocketBRAIN_adduplex.png", UriKind.Relative), AdvertData.ActionTypes.AppId, "ad1227e4-9f80-4967-957f-6db140dc0c90"));
+            bannerList.Add(new AdvertData(new Uri("/Assets/Adverts/powernAPP_adduplex.png", UriKind.Relative), AdvertData.ActionTypes.AppId, "92740dff-b2e1-4813-b08b-c6429df03356"));
+            bannerList.Add(new AdvertData(new Uri("/Assets/Adverts/Bash0r_adduplex.png", UriKind.Relative), AdvertData.ActionTypes.AppId, "e43a2937-b0e2-461e-92de-cf33c1360f73"));
+            bannerList.ShuffleList();
+
+            foreach (var banner in bannerList)
+            {
+                OfflineAdControl.AddAdvert(banner);
+            }
+        }
+
+        private void PlayTapped(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            PlaySoundEffect();
         }
     }
 }

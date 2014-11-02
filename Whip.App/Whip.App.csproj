@@ -158,11 +158,10 @@
     <Content Include="AppResLib.dll.080A.mui" />
     <Content Include="AppResLib.dll.0816.mui" />
     <Content Include="AppResLib.dll.0c0a.mui" />
-    <Content Include="Assets\Adverts\frequenzer_adduplex.png" />
+    <Content Include="Assets\Adverts\Bash0r_adduplex.png" />
     <Content Include="Assets\Adverts\Photo-Info_adduplex.png" />
     <Content Include="Assets\Adverts\pocketBRAIN_adduplex.png" />
     <Content Include="Assets\Adverts\powernAPP_adduplex.png" />
-    <Content Include="Assets\Adverts\ScribbleHunter_adduplex.png" />
     <Content Include="Assets\Images\close.png" />
     <Content Include="Assets\Images\whip.dark.png" />
     <Content Include="Assets\Images\whip.light.png" />

@@ -51,6 +51,7 @@
           DataContext="{StaticResource MainViewModel}">
         <Grid x:Name="AdvertsConteriner">
             <adverts:OfflineAdControl x:Name="OfflineAdControl" Width="480" Height="80" VerticalAlignment="Top" toolkit:TiltEffect.IsTiltEnabled="True" />
+            <adverts:MsDuplexAdControl x:Name="AdControl" Width="480" Height="80" VerticalAlignment="Top" AdDuplexAppId="122283" MsAdUnitId="166592" MsApplicationId="da6d9cd6-5ae8-41bd-bb99-f693afa63372" />
             <Border x:Name="RemoveAdButton" Background="{StaticResource PhoneAccentBrush}" Width="32" Height="32" Opacity="0.8"
                 VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Image Source="Assets/Images/close.png" VerticalAlignment="Center" HorizontalAlignment="Center" />
@@ -61,6 +62,8 @@
                    TextWrapping="Wrap" Width="300" Foreground="{StaticResource PhoneSubtleBrush}" 
                    Margin="0,0,0,150" />
         <Image Source="{Binding WhipImagePath}" />
+        <Path Width="62" Height="68" Stretch="Fill" Fill="{StaticResource PhoneForegroundBrush}" Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 30.0833,53.8333L 30.0833,22.1667 Z " Stroke="{StaticResource PhoneForegroundBrush}" StrokeThickness="10" StrokeLineJoin="Round" VerticalAlignment="Bottom" Margin="0,0,0,64" toolkit:TiltEffect.IsTiltEnabled="True" 
+              Tap="PlayTapped"/>
     </Grid>
 
 </phone:PhoneApplicationPage>
