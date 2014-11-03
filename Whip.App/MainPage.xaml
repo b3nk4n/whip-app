@@ -50,12 +50,12 @@
     <Grid x:Name="LayoutRoot" Background="Transparent"
           DataContext="{StaticResource MainViewModel}">
         <Grid x:Name="AdvertsConteriner">
+            <Border x:Name="RemoveAdButton" Background="{StaticResource PhoneForegroundBrush}" Width="32" Height="32" Margin="0,80,0,0"
+                    VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Path Width="20" Height="20" Stretch="Fill" Fill="{StaticResource PhoneBackgroundBrush}" Data="F1 M 26.9166,22.1667L 37.9999,33.25L 49.0832,22.1668L 53.8332,26.9168L 42.7499,38L 53.8332,49.0834L 49.0833,53.8334L 37.9999,42.75L 26.9166,53.8334L 22.1666,49.0833L 33.25,38L 22.1667,26.9167L 26.9166,22.1667 Z "/>
+            </Border>
             <adverts:OfflineAdControl x:Name="OfflineAdControl" Width="480" Height="80" VerticalAlignment="Top" toolkit:TiltEffect.IsTiltEnabled="True" />
             <adverts:MsDuplexAdControl x:Name="AdControl" Width="480" Height="80" VerticalAlignment="Top" AdDuplexAppId="122283" MsAdUnitId="166592" MsApplicationId="da6d9cd6-5ae8-41bd-bb99-f693afa63372" />
-            <Border x:Name="RemoveAdButton" Background="{StaticResource PhoneAccentBrush}" Width="32" Height="32" Opacity="0.8"
-                VerticalAlignment="Top" HorizontalAlignment="Right">
-                <Image Source="Assets/Images/close.png" VerticalAlignment="Center" HorizontalAlignment="Center" />
-            </Border>
         </Grid>
         
         <TextBlock x:Name="TipText" Text="{Binding Path=LocalizedResources.ShakeTip, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Bottom" TextAlignment="Center" 
